@@ -1,0 +1,236 @@
+/* ===== Tech AI Background ===== */
+.meshWrap {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(180deg, #030816 0%, #060918 30%, #0a0e28 60%, #080c1a 100%);
+}
+
+/* ── Tech Grid Overlay ── */
+.meshWrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='0.8' fill='rgba(52,211,153,0.12)'/%3E%3Cline x1='30' y1='0' x2='30' y2='60' stroke='rgba(52,211,153,0.025)' stroke-width='0.5'/%3E%3Cline x1='0' y1='30' x2='60' y2='30' stroke='rgba(52,211,153,0.025)' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  opacity: 0.5;
+  mask-image: radial-gradient(ellipse at 50% 30%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 0%, transparent 70%);
+  animation: gridPulse 8s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+/* ── Starfield layers ── */
+.stars,
+.stars2,
+.stars3 {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+}
+
+.stars {
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 80px 120px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.5px 1.5px at 150px 50px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 250px 180px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.2px 1.2px at 320px 90px, rgba(255,255,255,0.75), transparent),
+    radial-gradient(1px 1px at 400px 250px, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 480px 60px, rgba(255,255,255,0.85), transparent),
+    radial-gradient(1px 1px at 550px 300px, rgba(255,255,255,0.65), transparent);
+  background-size: 600px 350px;
+  animation: twinkle 8s ease-in-out infinite alternate;
+}
+
+.stars2 {
+  background-image:
+    radial-gradient(1px 1px at 50px 200px, rgba(200,220,255,0.8), transparent),
+    radial-gradient(1.3px 1.3px at 170px 80px, rgba(200,220,255,0.6), transparent),
+    radial-gradient(1px 1px at 290px 160px, rgba(200,220,255,0.7), transparent),
+    radial-gradient(1.2px 1.2px at 430px 220px, rgba(200,220,255,0.5), transparent),
+    radial-gradient(1px 1px at 530px 40px, rgba(200,220,255,0.75), transparent),
+    radial-gradient(1.3px 1.3px at 100px 290px, rgba(200,220,255,0.65), transparent);
+  background-size: 700px 400px;
+  animation: twinkle 12s ease-in-out 2s infinite alternate;
+}
+
+.stars3 {
+  background-image:
+    radial-gradient(2px 2px at 300px 100px, rgba(96,239,255,0.5), transparent),
+    radial-gradient(2.5px 2.5px at 150px 250px, rgba(0,255,135,0.4), transparent),
+    radial-gradient(2px 2px at 500px 180px, rgba(177,74,237,0.45), transparent);
+  background-size: 800px 450px;
+  animation: twinkle 15s ease-in-out 4s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* ── Aurora waves ── */
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.4;
+}
+
+.auroraWave1,
+.auroraWave2,
+.auroraWave3 {
+  position: absolute;
+  width: 200%;
+  left: -50%;
+  filter: blur(80px);
+}
+
+.auroraWave1 {
+  top: 5%;
+  height: 300px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(52, 211, 153, 0.15) 15%,
+    rgba(34, 211, 238, 0.2) 30%,
+    rgba(52, 211, 153, 0.12) 50%,
+    rgba(34, 211, 238, 0.18) 70%,
+    rgba(52, 211, 153, 0.1) 85%,
+    transparent 100%
+  );
+  animation: auroraShift1 18s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.auroraWave2 {
+  top: 12%;
+  height: 250px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(167, 139, 250, 0.12) 20%,
+    rgba(34, 211, 238, 0.15) 40%,
+    rgba(167, 139, 250, 0.1) 60%,
+    rgba(52, 211, 153, 0.12) 80%,
+    transparent 100%
+  );
+  animation: auroraShift2 22s ease-in-out 3s infinite;
+}
+
+.auroraWave3 {
+  top: 2%;
+  height: 200px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(34, 211, 238, 0.08) 25%,
+    rgba(52, 211, 153, 0.12) 50%,
+    rgba(34, 211, 238, 0.1) 75%,
+    transparent 100%
+  );
+  animation: auroraShift3 25s ease-in-out 6s infinite;
+}
+
+@keyframes auroraShift1 {
+  0%, 100% { transform: translateX(-5%) skewY(-1deg) scaleY(1); }
+  33% { transform: translateX(8%) skewY(1deg) scaleY(1.3); }
+  66% { transform: translateX(-3%) skewY(-0.5deg) scaleY(0.8); }
+}
+
+@keyframes auroraShift2 {
+  0%, 100% { transform: translateX(5%) skewY(0.5deg) scaleY(1); }
+  50% { transform: translateX(-8%) skewY(-1deg) scaleY(1.4); }
+}
+
+@keyframes auroraShift3 {
+  0%, 100% { transform: translateX(3%) scaleY(1); opacity: 0.4; }
+  50% { transform: translateX(-6%) scaleY(1.5); opacity: 0.7; }
+}
+
+/* ── Floating orbs ── */
+.orb1,
+.orb2,
+.orb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  will-change: transform;
+}
+
+.orb1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.08) 0%, transparent 70%);
+  top: 60%;
+  left: -5%;
+  animation: orbFloat1 30s ease-in-out infinite;
+}
+
+.orb2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.06) 0%, transparent 70%);
+  top: 30%;
+  right: -8%;
+  animation: orbFloat2 35s ease-in-out 5s infinite;
+}
+
+.orb3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.05) 0%, transparent 70%);
+  bottom: 10%;
+  left: 40%;
+  animation: orbFloat3 28s ease-in-out 10s infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(60px, -80px); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-50px, 60px); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(40px, -50px); }
+}
+
+/* ── Noise texture overlay ── */
+.noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* ── Hex circuit overlay (via ::after on noise) ── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='100' height='86.6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0L100 28.87v28.87L50 86.6 0 57.74V28.87z' fill='none' stroke='rgba(34,211,238,0.06)' stroke-width='0.4'/%3E%3C/svg%3E");
+  background-size: 100px 86.6px;
+  mask-image: radial-gradient(ellipse at 60% 40%, black 0%, transparent 60%);
+  -webkit-mask-image: radial-gradient(ellipse at 60% 40%, black 0%, transparent 60%);
+  animation: hexDrift 20s linear infinite;
+}
+
+@keyframes hexDrift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 43.3px); }
+}

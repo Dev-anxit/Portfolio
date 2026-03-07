@@ -1,0 +1,213 @@
+.about {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 25% 15%, rgba(52, 211, 153, 0.15), transparent),
+    radial-gradient(1px 1px at 75% 35%, rgba(34, 211, 238, 0.12), transparent),
+    radial-gradient(1px 1px at 50% 65%, rgba(167, 139, 250, 0.1), transparent),
+    radial-gradient(1px 1px at 15% 85%, rgba(52, 211, 153, 0.08), transparent),
+    radial-gradient(1px 1px at 85% 75%, rgba(34, 211, 238, 0.1), transparent);
+  background-size: 400px 300px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  pointer-events: none;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.textCol {
+  padding-top: 8px;
+}
+
+.bioHeading {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 22px;
+  line-height: 1.35;
+  letter-spacing: -0.5px;
+}
+
+.bioHeading span {
+  background: var(--gradient-aurora);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bio {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+/* ===== Stats Cubes ===== */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 22px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--cube-radius);
+  backdrop-filter: blur(12px);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-aurora);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.stat:hover {
+  transform: translateY(-4px);
+  border-color: rgba(52, 211, 153, 0.2);
+  box-shadow: 0 12px 40px rgba(52, 211, 153, 0.1);
+}
+
+.stat:hover::before {
+  opacity: 1;
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--gradient-aurora);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+}
+
+/* ===== Highlight Cube Cards ===== */
+.highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.highlightCard {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--cube-radius);
+  padding: 24px;
+  transition: all var(--transition);
+  cursor: default;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.highlightCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.highlightCard:hover {
+  border-color: rgba(52, 211, 153, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 50px rgba(52, 211, 153, 0.08);
+}
+
+.highlightCard:hover::after {
+  opacity: 0.5;
+}
+
+.highlightCard h3 {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.highlightCard p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(52, 211, 153, 0.1), rgba(34, 211, 238, 0.06));
+  color: var(--aurora-green);
+  border: 1px solid rgba(52, 211, 153, 0.12);
+}
+
+@media (max-width: 900px) {
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bioHeading {
+    font-size: 1.35rem;
+  }
+}
