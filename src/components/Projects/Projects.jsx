@@ -9,7 +9,7 @@ const projects = [
     description:
       'A full-stack AI chatbot with streaming FastAPI backend and React frontend. Features real-time token-by-token responses, syntax-highlighted code blocks, neural network animated background, and chat history.',
     tags: ['React', 'Python', 'FastAPI', 'Anthropic', 'Vercel'],
-    liveUrl: 'https://ehan-ai.vercel.app',
+    liveUrl: 'https://chat-ui-lake-nu.vercel.app/',
     githubUrl: 'https://github.com/Dev-anxit/ai-chatbot',
     image: null,
     theme: 'ai',
