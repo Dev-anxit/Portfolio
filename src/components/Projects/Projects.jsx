@@ -5,11 +5,11 @@ import styles from './Projects.module.css'
 
 const projects = [
   {
-    title: 'AI Chatbot',
+    title: 'Ehan AI — Chatbot',
     description:
-      'An AI-powered chatbot application built with JavaScript and Python, deployed on Appwrite. Engage in intelligent conversations with a sleek, responsive interface.',
-    tags: ['JavaScript', 'Python', 'CSS', 'Appwrite'],
-    liveUrl: 'https://ehan-ai.appwrite.network/',
+      'A full-stack AI chatbot with streaming FastAPI backend and React frontend. Features real-time token-by-token responses, syntax-highlighted code blocks, neural network animated background, and chat history.',
+    tags: ['React', 'Python', 'FastAPI', 'Anthropic', 'Vercel'],
+    liveUrl: 'https://ehan-ai.vercel.app',
     githubUrl: 'https://github.com/Dev-anxit/ai-chatbot',
     image: null,
     theme: 'ai',
