@@ -107,10 +107,10 @@ export default function Projects() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={styles.link}
-                      aria-label="View live project"
+                      className={styles.liveBtn}
                     >
-                      <FiExternalLink size={20} />
+                      <FiExternalLink size={16} />
+                      Live Demo
                     </a>
                   )}
                 </div>
