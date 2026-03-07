@@ -7,8 +7,8 @@ const projects = [
   {
     title: 'AI Chatbot',
     description:
-      'An AI-powered chatbot application built with JavaScript, deployed on Appwrite. Engage in intelligent conversations with a sleek, responsive interface.',
-    tags: ['JavaScript', 'AI', 'Appwrite', 'Chatbot'],
+      'An AI-powered chatbot application built with JavaScript and Python, deployed on Appwrite. Engage in intelligent conversations with a sleek, responsive interface.',
+    tags: ['JavaScript', 'Python', 'CSS', 'Appwrite'],
     liveUrl: 'https://ehan-ai.appwrite.network/',
     githubUrl: 'https://github.com/Dev-anxit/ai-chatbot',
     image: null,
@@ -18,7 +18,7 @@ const projects = [
     title: 'Emotion Detector',
     description:
       'A Convolutional Neural Network (CNN) model utilizing TensorFlow, Keras, and Haar cascades to accurately identify and classify human emotions in real-time.',
-    tags: ['Python', 'TensorFlow', 'Keras', 'CNN', 'OpenCV'],
+    tags: ['Python', 'Jupyter Notebook', 'TensorFlow', 'Keras', 'CNN'],
     liveUrl: null,
     githubUrl: 'https://github.com/Dev-anxit/Emotion_Detector',
     image: null,
@@ -27,8 +27,8 @@ const projects = [
   {
     title: 'Voting System',
     description:
-      'A secure and efficient digital voting system designed for transparent and tamper-proof elections.',
-    tags: ['Makefile', 'Systems Programming'],
+      'A secure and efficient digital voting system built with C/C++ for transparent and tamper-proof elections, featuring a Qt-based interface.',
+    tags: ['C++', 'C', 'QMake', 'Makefile'],
     liveUrl: null,
     githubUrl: 'https://github.com/Dev-anxit/voting-system',
     image: null,
