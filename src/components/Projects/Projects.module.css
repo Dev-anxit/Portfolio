@@ -46,22 +46,58 @@
   opacity: 1;
 }
 
-.cardImage {
+.cardInnerWrap {
   width: 100%;
-  height: 200px;
-  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  min-height: 400px; /* Big immersive card */
+  border-radius: var(--cube-radius);
+  overflow: hidden;
 }
 
-.cardImage img {
+.wallpaperOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.wallpaperImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  opacity: 0.9;
 }
 
-.card:hover .cardImage img {
-  transform: scale(1.06);
+.wallpaperGradient {
+  position: absolute;
+  inset: 0;
+  /* Deep dark gradient from bottom fading up */
+  background: linear-gradient(to top, rgba(10, 14, 23, 1) 10%, rgba(10, 14, 23, 0.7) 50%, rgba(10, 14, 23, 0.3) 100%);
+  z-index: 2;
+  transition: background 0.5s ease;
+}
+
+.card:hover .wallpaperImg {
+  transform: scale(1.1);
+}
+
+.card:hover .wallpaperGradient {
+  background: linear-gradient(to top, rgba(10, 14, 23, 0.95) 5%, rgba(10, 14, 23, 0.5) 45%, rgba(0, 240, 255, 0.1) 100%);
+}
+
+.cardContent {
+  padding: 30px;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
 }
 
 .placeholder {
@@ -185,23 +221,20 @@
   opacity: 0.6;
 }
 
-.cardBody {
-  padding: 24px;
-}
-
 .cardTitle {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 650;
-  margin-bottom: 10px;
-  letter-spacing: -0.3px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+  letter-spacing: -0.2px;
 }
 
 .cardDesc {
-  color: var(--text-secondary);
-  font-size: 0.88rem;
-  line-height: 1.65;
-  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .tags {

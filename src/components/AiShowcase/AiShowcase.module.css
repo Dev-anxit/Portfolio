@@ -1,0 +1,133 @@
+.showcaseSection {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+.protocolGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.protocolCard {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(20px);
+  cursor: default;
+}
+
+.imageOverlay {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageOverlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 0.6;
+}
+
+.protocolCard:hover .imageOverlay img {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.gradientMask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, var(--bg-card) 95%);
+}
+
+.cardContent {
+  padding: 0 30px 40px 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.iconHolo {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: -30px;
+  z-index: 5;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.iconGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  filter: blur(20px);
+  opacity: 0.3;
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+
+.protocolCard:hover .iconGlow {
+  opacity: 0.6;
+}
+
+.slideTitle {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 10px;
+}
+
+.slideDesc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.hoverLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.protocolCard:hover .hoverLine {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .protocolGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.8); }
+  100% { transform: scale(1.2); }
+}

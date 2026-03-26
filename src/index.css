@@ -1,22 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap');
 /* ===== Professional Tech Theme ===== */
 :root {
   /* Backgrounds */
-  --bg-primary: #060918;
-  --bg-secondary: #0c1024;
-  --bg-card: rgba(12, 18, 38, 0.65);
-  --bg-card-hover: rgba(18, 26, 50, 0.8);
+  --bg-primary: #0a0e17;
+  --bg-secondary: #0f172a;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --bg-card-hover: rgba(30, 41, 59, 0.85);
 
   /* Text — high contrast, easy on eyes */
-  --text-primary: #f1f5f9;
+  --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-tertiary: #64748b;
 
   /* Aurora Colors */
-  --aurora-green: #34d399;
-  --aurora-blue: #22d3ee;
-  --aurora-purple: #a78bfa;
-  --aurora-pink: #f472b6;
-  --aurora-gold: #fbbf24;
+  --aurora-green: #00f0ff;
+  --aurora-blue: #3b82f6;
+  --aurora-purple: #8b5cf6;
+  --aurora-pink: #ec4899;
+  --aurora-gold: #f59e0b;
 
   /* Accents */
   --accent: #34d399;
@@ -41,7 +42,7 @@
   --border-glow: rgba(52, 211, 153, 0.2);
 
   /* System */
-  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --section-padding: 120px 0;
   --radius: 16px;
@@ -61,20 +62,29 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: var(--font-body);
-  background: var(--bg-primary);
+  background-color: #050505;
   color: var(--text-primary);
-  line-height: 1.6;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   position: relative;
 }
 
-a {
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at top right, rgba(168, 85, 247, 0.03), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.03), transparent 40%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+a, button, [role="button"] {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 ul {
