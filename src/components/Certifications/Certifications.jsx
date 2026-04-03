@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useMotionValue, useTransform } from 'framer-motion'
 import { useRef, useCallback, useState } from 'react'
 import { FiExternalLink, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import styles from './Certifications.module.css'
@@ -29,37 +29,37 @@ const certifications = [
     image: '/cert-images/cyberpeace.png',
   },
   {
-    title: 'Python',
+    title: 'Python for Data Science',
     issuer: 'Coursera',
     file: '/certificates/Python courseraa certificate.pdf',
     image: '/cert-images/coursera-python.png',
   },
   {
-    title: 'Coursera Certification',
-    issuer: 'Coursera',
+    title: 'Object-Oriented Programming',
+    issuer: 'Packt',
     file: '/certificates/Ankit_coursera_jan2026.pdf',
     image: '/cert-images/coursera-2026.png',
   },
   {
-    title: 'Coursera — January 2026',
-    issuer: 'Coursera',
+    title: 'Intro to Software Engineering',
+    issuer: 'IBM',
     file: '/certificates/Coursera january _2026.pdf',
     image: '/cert-images/coursera-jan-2026.png',
   },
   {
-    title: 'Coursera Certification',
-    issuer: 'Coursera',
+    title: 'Development Methodologies',
+    issuer: 'LearnQuest',
     file: '/certificates/Coursera_jan_2026.pdf',
     image: '/cert-images/coursera-cert.png',
   },
   {
-    title: 'Java',
-    issuer: 'Coursera',
+    title: 'Java for Beginners',
+    issuer: 'IBM',
     file: '/certificates/Coursera_jan_2026_java.pdf',
     image: '/cert-images/coursera-java.png',
   },
   {
-    title: 'Operating Systems',
+    title: 'Operating Systems Basics',
     issuer: 'Coursera',
     file: '/certificates/Coursera_jan_2026_os.pdf',
     image: '/cert-images/coursera-os.png',
@@ -79,25 +79,51 @@ const certifications = [
 ]
 
 function CertCard({ cert }) {
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+
+  const rotateX = useTransform(y, [-100, 100], [10, -10])
+  const rotateY = useTransform(x, [-100, 100], [-10, 10])
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    x.set(e.clientX - rect.left - rect.width / 2)
+    y.set(e.clientY - rect.top - rect.height / 2)
+  }
+
+  const handleMouseLeave = () => {
+    x.set(0)
+    y.set(0)
+  }
+
   return (
-    <a
+    <motion.a
       href={cert.file}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.card}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: 'preserve-3d',
+      }}
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
-      <div className={styles.imageWrap}>
+      <div className={styles.imageWrap} style={{ transform: 'translateZ(20px)' }}>
         <img src={cert.image} alt={cert.title} className={styles.image} loading="lazy" />
         <div className={styles.imageOverlay}>
           <FiExternalLink size={20} />
           <span>View Certificate</span>
         </div>
       </div>
-      <div className={styles.info}>
+      <div className={styles.info} style={{ transform: 'translateZ(30px)' }}>
         <h3 className={styles.title}>{cert.title}</h3>
         <p className={styles.issuer}>{cert.issuer}</p>
       </div>
-    </a>
+    </motion.a>
   )
 }
 

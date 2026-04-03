@@ -1,0 +1,154 @@
+.journeySection {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.titleWrapper {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Central Tracker Lines */
+.lineTrack {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.lineGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  background: linear-gradient(180deg, var(--aurora-blue), var(--aurora-purple), var(--aurora-green));
+  transform: translateX(-50%);
+  z-index: 2;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+  transform-origin: top;
+}
+
+.node {
+  position: relative;
+  width: 50%;
+  padding-bottom: 50px;
+  z-index: 5;
+}
+
+.nodeLeft {
+  left: 0;
+  padding-right: 50px;
+  text-align: right;
+}
+
+.nodeRight {
+  left: 50%;
+  padding-left: 50px;
+  text-align: left;
+}
+
+/* Glowing Cyber Icon */
+.iconBox {
+  position: absolute;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  background: rgba(6, 9, 24, 0.9);
+  border: 2px solid;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+.nodeLeft .iconBox {
+  right: -22px;
+}
+
+.nodeRight .iconBox {
+  left: -22px;
+}
+
+/* Glassmorphic Cards */
+.contentCard {
+  background: rgba(15, 20, 35, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.contentCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.dateBadge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.nodeTitle {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.orgName {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.nodeDesc {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .lineTrack, .lineGlow {
+    left: 20px;
+  }
+  
+  .node {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 60px !important;
+    padding-right: 0 !important;
+    text-align: left;
+  }
+
+  .nodeLeft .iconBox, .nodeRight .iconBox {
+    left: -2px;
+    right: auto;
+  }
+}

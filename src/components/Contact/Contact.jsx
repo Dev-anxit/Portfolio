@@ -2,6 +2,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { FiMail, FiMapPin, FiSend, FiGithub, FiLinkedin, FiInstagram, FiClock, FiCheckCircle, FiCopy } from 'react-icons/fi'
 import { HiOutlineSparkles } from 'react-icons/hi'
+import ParticleBackground from '../ParticleBackground/ParticleBackground'
 import styles from './Contact.module.css'
 
 export default function Contact() {
@@ -48,6 +49,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className={styles.contact}>
+      <ParticleBackground />
       <div className={styles.bgOrb1} />
       <div className={styles.bgOrb2} />
       <div className={styles.bgOrb3} />

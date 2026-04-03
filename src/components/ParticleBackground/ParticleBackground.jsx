@@ -1,71 +1,43 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { Points, PointMaterial } from '@react-three/drei'
+import * as random from 'maath/random/dist/maath-random.esm'
 import styles from './ParticleBackground.module.css'
 
+function ParticleField(props) {
+  const ref = useRef()
+  // Create an array of random points
+  const sphere = random.inSphere(new Float32Array(3000), { radius: 12 })
+
+  useFrame((state, delta) => {
+    if (ref.current) {
+      ref.current.rotation.x += delta / 20
+      ref.current.rotation.y += delta / 30
+    }
+  })
+
+  return (
+    <group rotation={[0, 0, Math.PI / 3]}>
+      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
+        <PointMaterial
+          transparent
+          color="#a855f7"
+          size={0.02}
+          sizeAttenuation={true}
+          depthWrite={false}
+          opacity={0.4}
+        />
+      </Points>
+    </group>
+  )
+}
+
 export default function ParticleBackground() {
-  const canvasRef = useRef(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-    let animId
-
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    resize()
-    window.addEventListener('resize', resize)
-
-    const nodes = Array.from({ length: 60 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      r: Math.random() * 2 + 1,
-    }))
-
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // draw connections
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x
-          const dy = nodes[i].y - nodes[j].y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < 160) {
-            ctx.beginPath()
-            ctx.moveTo(nodes[i].x, nodes[i].y)
-            ctx.lineTo(nodes[j].x, nodes[j].y)
-            ctx.strokeStyle = `rgba(0, 212, 255, ${0.08 * (1 - dist / 160)})`
-            ctx.lineWidth = 0.5
-            ctx.stroke()
-          }
-        }
-      }
-
-      // draw nodes
-      for (const n of nodes) {
-        ctx.beginPath()
-        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(0, 212, 255, ${0.3 + n.r * 0.1})`
-        ctx.fill()
-
-        n.x += n.vx
-        n.y += n.vy
-        if (n.x < 0 || n.x > canvas.width) n.vx *= -1
-        if (n.y < 0 || n.y > canvas.height) n.vy *= -1
-      }
-
-      animId = requestAnimationFrame(draw)
-    }
-    draw()
-
-    return () => {
-      cancelAnimationFrame(animId)
-      window.removeEventListener('resize', resize)
-    }
-  }, [])
-
-  return <canvas ref={canvasRef} className={styles.canvas} />
+  return (
+    <div className={styles.particleContainer}>
+      <Canvas camera={{ position: [0, 0, 8], fov: 75 }}>
+        <ParticleField />
+      </Canvas>
+    </div>
+  )
 }

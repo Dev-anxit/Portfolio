@@ -9,15 +9,15 @@ const protocols = [
     icon: <FiShield size={32} />,
     title: "Cyber Security & Hacking 🛡️",
     desc: "Simulating adversarial attacks to fortify node defense mechanisms. Exploiting vulnerabilities in secure perimeters to build unbreakable architectures.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800",
+    image: "/protocol_sec.png",
     color: "#a78bfa"
   },
   {
     id: 'ai',
     icon: <FiCpu size={32} />,
     title: "AI & Neural Networks 🧠",
-    desc: "Training highly-optimized language models and deep learning engines. Focusing on generative intelligence and computer vision (Emotion Detection).",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+    desc: "Building intelligent AI systems including emotion detection CNNs, intelligent chatbots with streaming responses, and neural network architectures. Specializing in computer vision and natural language processing applications.",
+    image: "/protocol_ai.png",
     color: "#00f0ff"
   },
   {
@@ -25,7 +25,7 @@ const protocols = [
     icon: <FiEye size={32} />,
     title: "Virtual Reality Interfaces 👓",
     desc: "Crafting immersive 3D HUDs and intelligent digital environments that break the boundaries of 2D screens through pure WebGL and spatial mapping.",
-    image: "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&q=80&w=800",
+    image: "/protocol_vr.png",
     color: "#ec4899"
   }
 ];

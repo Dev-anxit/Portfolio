@@ -11,7 +11,7 @@ const projects = [
     tags: ['React', 'Python', 'FastAPI', 'Anthropic', 'Vercel'],
     liveUrl: 'https://chat-ui-lake-nu.vercel.app/',
     githubUrl: 'https://github.com/Dev-anxit/ai-chatbot',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
+    image: '/project_chatbot.png',
     theme: 'ai',
   },
   {
@@ -21,7 +21,7 @@ const projects = [
     tags: ['Python', 'TensorFlow', 'Keras', 'OpenCV', 'CNN'],
     liveUrl: null,
     githubUrl: 'https://github.com/Dev-anxit/Emotion_Detector',
-    image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800',
+    image: '/project_emotion.png',
     theme: 'ml',
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     tags: ['C++', 'Algorithms', 'Math', 'CLI'],
     liveUrl: null,
     githubUrl: 'https://github.com/Dev-anxit/Scientific-Calculator',
-    image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=800',
+    image: '/project_math.png',
     theme: 'sys',
   },
   {
@@ -41,7 +41,7 @@ const projects = [
     tags: ['C++', 'Security', 'Cryptography', 'Hashing'],
     liveUrl: null,
     githubUrl: 'https://github.com/Dev-anxit/voting-system',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
+    image: '/project_voting.png',
     theme: 'sys',
   },
 ]

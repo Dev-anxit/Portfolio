@@ -39,11 +39,11 @@ export default function Footer() {
       >
         <div className={`container ${styles.ctaInner}`}>
           <div className={styles.ctaText}>
-            <h3 className={styles.ctaTitle}>Let's build something great together</h3>
-            <p className={styles.ctaDesc}>Have a project in mind? I'm always open to new opportunities and ideas.</p>
+            <h3 className={styles.ctaTitle}>READY TO BUILD THE FUTURE?</h3>
+            <p className={styles.ctaDesc}>Looking to engineer next-generation Artificial Intelligence systems? Let's connect.</p>
           </div>
           <a href="#contact" className={styles.ctaBtn}>
-            <span>Get in Touch</span>
+            <span>INITIATE PROTOCOL</span>
             <FiArrowUp size={16} className={styles.ctaBtnIcon} />
           </a>
         </div>

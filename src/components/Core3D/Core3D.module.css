@@ -1,0 +1,20 @@
+.coreContainer {
+  width: 100%;
+  height: 350px;
+  min-height: 350px;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  pointer-events: auto; /* allow drag rotation */
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .coreContainer {
+    height: 250px;
+    min-height: 250px;
+  }
+}

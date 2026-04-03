@@ -5,6 +5,7 @@ import {
   SiPython, SiGit, SiMongodb, SiTailwindcss, SiTypescript,
   SiNextdotjs, SiFigma, SiTensorflow, SiFlask, SiArduino, SiDocker
 } from 'react-icons/si'
+import NeuralMesh from '../NeuralMesh/NeuralMesh'
 import styles from './Skills.module.css'
 
 const skillCategories = [
@@ -46,6 +47,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className={styles.skills}>
+      <NeuralMesh />
       <div className={styles.bgOrbs}>
         <div className={styles.orb1} />
         <div className={styles.orb2} />

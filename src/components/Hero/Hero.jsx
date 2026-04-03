@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiMapPin, FiBriefcase } from 'react-icons/fi'
+import Hero3D from '../Hero3D/Hero3D'
 import styles from './Hero.module.css'
 
 export default function Hero() {
@@ -20,6 +21,11 @@ export default function Hero() {
 
   return (
     <section id="home" className={styles.hero}>
+      {/* 3D background halo - moved to be a decorative side element for a classy look */}
+      <div style={{ position: 'absolute', width: '100%', height: '100%', right: '5%', top: '0', zIndex: 0, opacity: 0.8 }}>
+        <Hero3D />
+      </div>
+
       <div className={`container ${styles.heroContent}`}>
         <motion.div
           className={styles.textBlock}
@@ -27,6 +33,7 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
+          {/* Text block contents... */}
           <motion.p 
             className={styles.greeting}
             initial={{ opacity: 0 }}
@@ -133,6 +140,7 @@ export default function Hero() {
             src={`/profile.png?v=${Date.now()}`}
             alt="Ankit Yadav"
             className={styles.avatarImg}
+            style={{ position: 'relative', zIndex: 1 }}
           />
         </motion.div>
       </div>

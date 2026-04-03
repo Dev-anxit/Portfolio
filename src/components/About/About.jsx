@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FiCode, FiLayers, FiZap, FiCpu, FiAward, FiTrendingUp } from 'react-icons/fi'
+import Core3D from '../Core3D/Core3D'
 import styles from './About.module.css'
 
 const highlights = [
@@ -73,6 +74,8 @@ export default function About() {
               applications. Always open to collaborating on projects that push
               boundaries and make a real-world impact.
             </p>
+
+            <Core3D />
 
             <motion.div
               className={styles.statsRow}

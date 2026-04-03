@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMessageSquare, FiX, FiCpu } from 'react-icons/fi';
+import Chat3D from '../Chat3D/Chat3D';
 
 export default function AiAssistant() {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,9 +98,9 @@ export default function AiAssistant() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'linear-gradient(135deg, var(--aurora-green), var(--aurora-blue))', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 20px rgba(0,240,255,0.4)', cursor: 'pointer', marginLeft: 'auto' }}
+        style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'linear-gradient(135deg, var(--aurora-green), var(--aurora-blue))', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 20px rgba(0,240,255,0.4)', cursor: 'pointer', marginLeft: 'auto', overflow: 'hidden' }}
       >
-        <FiMessageSquare color="#020202" size={24} />
+        <Chat3D />
       </motion.button>
     </div>
   );
