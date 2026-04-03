@@ -32,24 +32,23 @@ function GlassShell() {
   useFrame((state) => {
     const t = state.clock.getElapsedTime()
     if (meshRef.current) {
-      meshRef.current.rotation.x = t * 0.5
-      meshRef.current.rotation.y = t * 0.3
+      meshRef.current.rotation.x = t * 0.4
+      meshRef.current.rotation.y = t * 0.2
     }
   })
 
   return (
     <mesh ref={meshRef}>
-      <icosahedronGeometry args={[0.9, 2]} />
-      <MeshTransmissionMaterial
-        backside
-        samples={10}
-        thickness={1}
-        anisotropicBlur={0.1}
-        iridescence={0.5}
-        roughness={0}
-        transmission={1}
-        ior={1.2}
+      <icosahedronGeometry args={[0.9, 1]} />
+      <meshPhysicalMaterial
+        roughness={0.1}
+        transmission={0.9}
+        thickness={0.5}
+        transparent
+        opacity={0.3}
         color="#ffffff"
+        emissive="#38bdf8"
+        emissiveIntensity={0.2}
       />
     </mesh>
   )
@@ -62,7 +61,7 @@ export default function Chat3D() {
   return (
     <div style={{ width: '100%', height: '100%', pointerEvents: 'none', background: 'transparent' }} ref={containerRef}>
       {isInView && (
-        <Canvas camera={{ position: [0, 0, 3], fov: 40 }} dpr={[1, 2]}>
+        <Canvas camera={{ position: [0, 0, 3], fov: 40 }} dpr={1} gl={{ antialias: false, powerPreference: "high-performance" }}>
           <ambientLight intensity={1} />
           <pointLight position={[10, 10, 10]} intensity={1.5} color="#38bdf8" />
           <pointLight position={[-10, -10, -10]} intensity={1.5} color="#a855f7" />

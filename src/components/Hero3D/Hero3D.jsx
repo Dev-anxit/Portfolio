@@ -8,8 +8,8 @@ import styles from './Hero3D.module.css'
 function FloatingCrystal() {
   const meshRef = useRef()
   
-  // Create a more interesting geometry: an Icosahedron with more detail
-  const geometry = useMemo(() => new THREE.IcosahedronGeometry(1.5, 15), [])
+  // Detail reduced for performance
+  const geometry = useMemo(() => new THREE.IcosahedronGeometry(1.5, 3), [])
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime()
@@ -25,18 +25,15 @@ function FloatingCrystal() {
       <mesh ref={meshRef} geometry={geometry}>
         <MeshTransmissionMaterial
           backside
-          samples={16}
-          thickness={1.5}
-          anisotropicBlur={0.1}
-          iridescence={1}
-          iridescenceThicknessRange={[0, 1400]}
-          iridescenceIOR={1.5}
-          roughness={0.1}
+          samples={8}
+          thickness={1}
+          iridescence={0.5}
+          roughness={0.15}
           transmission={1}
-          ior={1.2}
+          ior={1.15}
           color="#ffffff"
           emissive="#a855f7"
-          emissiveIntensity={0.1}
+          emissiveIntensity={0.05}
         />
       </mesh>
       
@@ -69,14 +66,14 @@ export default function Hero3D() {
   return (
     <div className={styles.canvasContainer} ref={containerRef}>
       {isInView && (
-        <Canvas dpr={[1, 2]}>
+        <Canvas dpr={1}>
           <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={40} />
           <ambientLight intensity={0.5} />
           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
           <pointLight position={[-10, -10, -10]} color="#a855f7" intensity={2} />
           
           <FloatingCrystal />
-          <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+          <Stars radius={100} depth={50} count={2000} factor={4} saturation={0} fade speed={1} />
           
           <Rig />
           <OrbitControls enableZoom={false} enablePan={false} />
