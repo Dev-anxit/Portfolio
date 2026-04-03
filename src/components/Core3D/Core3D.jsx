@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Float, Sparkles, OrbitControls, Icosahedron } from '@react-three/drei'
+import { useInView } from 'framer-motion'
 import styles from './Core3D.module.css'
 
 function AdvancedCore() {
@@ -84,19 +85,24 @@ function AdvancedCore() {
 }
 
 export default function Core3D() {
+  const containerRef = useRef(null)
+  const isInView = useInView(containerRef, { margin: '200px' })
+
   return (
-    <div className={styles.coreContainer}>
-      <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
-        <ambientLight intensity={0.2} />
-        <directionalLight position={[10, 10, 10]} intensity={1.5} color="#ffffff" />
-        <pointLight position={[-10, -10, -10]} intensity={3} color="#a855f7" />
-        <pointLight position={[10, -10, 10]} intensity={3} color="#38bdf8" />
-        
-        <AdvancedCore />
-        
-        {/* Allow users to click and drag the orb! */}
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate={true} autoRotateSpeed={0.5} />
-      </Canvas>
+    <div className={styles.coreContainer} ref={containerRef}>
+      {isInView && (
+        <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
+          <ambientLight intensity={0.2} />
+          <directionalLight position={[10, 10, 10]} intensity={1.5} color="#ffffff" />
+          <pointLight position={[-10, -10, -10]} intensity={3} color="#a855f7" />
+          <pointLight position={[10, -10, 10]} intensity={3} color="#38bdf8" />
+          
+          <AdvancedCore />
+          
+          {/* Allow users to click and drag the orb! */}
+          <OrbitControls enableZoom={false} enablePan={false} autoRotate={true} autoRotateSpeed={0.5} />
+        </Canvas>
+      )}
     </div>
   )
 }

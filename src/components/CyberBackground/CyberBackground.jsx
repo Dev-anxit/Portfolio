@@ -22,7 +22,7 @@ export default function CyberBackground() {
       height = canvas.height = window.innerHeight;
       particles = [];
       
-      const maxParticles = Math.min(Math.floor(width / 20), 80); 
+      const maxParticles = Math.min(Math.floor(width / 40), 25); 
       
       for (let i = 0; i < maxParticles; i++) {
         const x = Math.random() * width;

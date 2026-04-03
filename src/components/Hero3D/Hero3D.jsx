@@ -2,6 +2,7 @@ import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Float, MeshTransmissionMaterial, OrbitControls, Stars, PerspectiveCamera } from '@react-three/drei'
 import * as THREE from 'three'
+import { useInView } from 'framer-motion'
 import styles from './Hero3D.module.css'
 
 function FloatingCrystal() {
@@ -62,20 +63,25 @@ function Rig() {
 }
 
 export default function Hero3D() {
+  const containerRef = useRef(null)
+  const isInView = useInView(containerRef, { margin: '200px' })
+
   return (
-    <div className={styles.canvasContainer}>
-      <Canvas dpr={[1, 2]}>
-        <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={40} />
-        <ambientLight intensity={0.5} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
-        <pointLight position={[-10, -10, -10]} color="#a855f7" intensity={2} />
-        
-        <FloatingCrystal />
-        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-        
-        <Rig />
-        <OrbitControls enableZoom={false} enablePan={false} />
-      </Canvas>
+    <div className={styles.canvasContainer} ref={containerRef}>
+      {isInView && (
+        <Canvas dpr={[1, 2]}>
+          <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={40} />
+          <ambientLight intensity={0.5} />
+          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
+          <pointLight position={[-10, -10, -10]} color="#a855f7" intensity={2} />
+          
+          <FloatingCrystal />
+          <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+          
+          <Rig />
+          <OrbitControls enableZoom={false} enablePan={false} />
+        </Canvas>
+      )}
     </div>
   )
 }
