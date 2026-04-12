@@ -24,16 +24,15 @@ function FloatingCrystal() {
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
       <mesh ref={meshRef} geometry={geometry}>
         <MeshTransmissionMaterial
-          backside
-          samples={8}
-          thickness={1}
-          iridescence={0.5}
-          roughness={0.15}
+          backside={false}
+          samples={4}
+          thickness={0.5}
+          roughness={0.1}
           transmission={1}
-          ior={1.15}
+          ior={1.2}
           color="#ffffff"
           emissive="#a855f7"
-          emissiveIntensity={0.05}
+          emissiveIntensity={0.1}
         />
       </mesh>
       

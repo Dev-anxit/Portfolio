@@ -7,7 +7,7 @@ import styles from './ParticleBackground.module.css'
 function ParticleField(props) {
   const ref = useRef()
   // Create an array of random points
-  const sphere = random.inSphere(new Float32Array(3000), { radius: 12 })
+  const sphere = useMemo(() => random.inSphere(new Float32Array(2000 * 3), { radius: 12 }), [])
 
   useFrame((state, delta) => {
     if (ref.current) {
@@ -35,7 +35,7 @@ function ParticleField(props) {
 export default function ParticleBackground() {
   return (
     <div className={styles.particleContainer}>
-      <Canvas camera={{ position: [0, 0, 8], fov: 75 }}>
+      <Canvas dpr={[1, 1.5]} gl={{ antialias: false, powerPreference: 'high-performance' }} camera={{ position: [0, 0, 8], fov: 75 }}>
         <ParticleField />
       </Canvas>
     </div>

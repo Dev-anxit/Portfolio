@@ -392,6 +392,32 @@ a.infoCard {
   transform: translateX(-50%) translateY(0);
 }
 
+.linkedinBadgeWrap {
+  margin-top: 24px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.linkedinBadgeWrap:hover {
+  background: rgba(52, 211, 153, 0.03);
+  border-color: rgba(52, 211, 153, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+  .linkedinBadgeWrap {
+    transform: scale(0.9);
+    margin-left: -5%;
+    width: 110%;
+  }
+}
+
 /* ── Form Panel ── */
 .formPanel {
   display: flex;

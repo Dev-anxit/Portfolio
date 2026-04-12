@@ -3,6 +3,7 @@ import { useRef, useState } from 'react'
 import { FiMail, FiMapPin, FiSend, FiGithub, FiLinkedin, FiInstagram, FiClock, FiCheckCircle, FiCopy } from 'react-icons/fi'
 import { HiOutlineSparkles } from 'react-icons/hi'
 import ParticleBackground from '../ParticleBackground/ParticleBackground'
+import LinkedInBadge from './LinkedInBadge'
 import styles from './Contact.module.css'
 
 export default function Contact() {
@@ -184,6 +185,10 @@ export default function Contact() {
                     </motion.a>
                   ))}
                 </div>
+              </div>
+              
+              <div className={styles.linkedinBadgeWrap}>
+                <LinkedInBadge />
               </div>
             </div>
           </motion.div>

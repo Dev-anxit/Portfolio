@@ -72,7 +72,8 @@
   background: var(--bg-card);
   border: 1px solid var(--glass-border);
   border-radius: var(--cube-radius);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  will-change: transform;
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
@@ -136,7 +137,8 @@
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  will-change: transform;
   position: relative;
   overflow: hidden;
 }

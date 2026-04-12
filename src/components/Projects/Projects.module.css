@@ -17,8 +17,9 @@
   border-radius: var(--cube-radius);
   overflow: hidden;
   transition: all var(--transition);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
   position: relative;
+  will-change: transform;
 }
 
 .card::before {
@@ -219,6 +220,22 @@
     url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 50h25M65 50h25M50 10v25M50 65v25M10 10L35 35M65 35L90 10M10 90L35 65M65 65L90 90' stroke='rgba(52,211,153,0.05)' stroke-width='0.5' fill='none'/%3E%3Crect x='35' y='35' width='30' height='30' rx='4' fill='none' stroke='rgba(52,211,153,0.1)' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='4' fill='rgba(52,211,153,0.06)' stroke='rgba(52,211,153,0.1)' stroke-width='0.5'/%3E%3C/svg%3E");
   background-size: 100px 100px;
   opacity: 0.6;
+}
+
+/* ── Security Theme — Padlocks / Shields ── */
+.ph_security {
+  background:
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 10v4M14 20h12v8H14z' stroke='rgba(52,211,153,0.08)' stroke-width='1.5' fill='none'/%3E%3Cpath d='M20 5c-5 0-8 3-8 8v7h16v-7c0-5-3-8-8-8z' stroke='rgba(52,211,153,0.06)' stroke-width='1' fill='none'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 50% 50%, rgba(52, 211, 153, 0.1) 0%, transparent 60%),
+    #060918;
+  color: #34d399;
+}
+
+.ph_security::before {
+  background:
+    linear-gradient(135deg, rgba(52, 211, 153, 0.1) 0%, transparent 60%),
+    linear-gradient(315deg, rgba(34, 211, 238, 0.05) 0%, transparent 60%);
+  animation: placeholderShift 6s ease-in-out infinite;
 }
 
 .cardTitle {

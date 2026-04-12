@@ -8,7 +8,7 @@ import styles from './About.module.css'
 const highlights = [
   { icon: <FiCode size={24} />, title: 'Clean Code', desc: 'Writing maintainable, scalable code that follows best practices', color: '#34d399' },
   { icon: <FiLayers size={24} />, title: 'Full Stack', desc: 'Frontend to backend — React, Flask, Node.js & more', color: '#22d3ee' },
-  { icon: <FiCpu size={24} />, title: 'AI / ML', desc: 'Building intelligent apps with TensorFlow, CNNs & NLP', color: '#a78bfa' },
+  { icon: <FiCpu size={24} />, title: 'Security / AI', desc: 'Building secure intelligent apps with robust encryption & monitoring', color: '#a78bfa' },
   { icon: <FiZap size={24} />, title: 'Performance', desc: 'Fast, optimized apps with modern tooling', color: '#34d399' },
   { icon: <FiAward size={24} />, title: 'Hackathons', desc: 'Hacktoberfest, Robowar & university competitions', color: '#22d3ee' },
   { icon: <FiTrendingUp size={24} />, title: 'Open Source', desc: 'Actively contributing to the dev community', color: '#f472b6' },
@@ -59,10 +59,11 @@ export default function About() {
             <p className={styles.bio}>
               I'm a Computer Science & Engineering undergraduate at
               Chandigarh University, Mohali — originally from Patna, Bihar.
-              I have a deep passion for creating impactful digital experiences,
-              specializing in AI-powered web applications, from emotion detection
-              systems using CNNs to intelligent chatbots — blending modern
-              frontend frameworks with smart backend architectures.
+              I have a deep passion for creating IMPACTFUL and SECURE digital experiences,
+              specializing in secure AI-powered web applications — from 
+              production-ready voting portals with biometric verification to 
+              intelligent chatbots — blending modern frontend frameworks with 
+              robust security architectures.
             </p>
             <p className={styles.bio}>
               Beyond code, I thrive in competitive environments — from university
@@ -70,7 +71,7 @@ export default function About() {
               writing code that's not just functional, but elegant and meaningful.
             </p>
             <p className={styles.bio}>
-              Currently exploring deep learning, computer vision, and full-stack AI
+              Currently exploring network security, ethical hacking, and full-stack secure
               applications. Always open to collaborating on projects that push
               boundaries and make a real-world impact.
             </p>
@@ -92,7 +93,7 @@ export default function About() {
             </motion.div>
 
             <a
-              href="/Ankit-Resume.pdf"
+              href="/Ankit_CV_CU.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

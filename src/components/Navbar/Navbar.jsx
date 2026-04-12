@@ -62,7 +62,7 @@ export default function Navbar() {
           {/* 🔗 LINK YOUR CV HERE */}
           <li>
             <a
-              href="/Ankit-Resume.pdf"
+              href="/Ankit_CV_CU.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

@@ -35,14 +35,14 @@ const projects = [
     theme: 'sys',
   },
   {
-    title: 'Secure Voting System 🗳️',
+    title: 'Secure Digital Voting Portal 🗳️',
     description:
-      'A tamper-proof digital voting infrastructure built with secure cryptographic hashing mechanisms to guarantee election integrity.',
-    tags: ['C++', 'Security', 'Cryptography', 'Hashing'],
-    liveUrl: null,
+      'A full-stack e-voting platform featuring OTP authentication, DigiLocker KYC verification, and MongoDB persistent storage for election integrity.',
+    tags: ['React', 'Node.js', 'MongoDB', 'Security', 'OTP'],
+    liveUrl: 'https://voting-system-anxit.vercel.app/',
     githubUrl: 'https://github.com/Dev-anxit/voting-system',
     image: '/project_voting.png',
-    theme: 'sys',
+    theme: 'security',
   },
 ]
 

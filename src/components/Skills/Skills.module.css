@@ -79,7 +79,8 @@
   overflow: hidden;
   min-width: 220px;
   flex: 1;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  will-change: transform;
 }
 
 .cardHeader {

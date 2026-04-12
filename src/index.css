@@ -59,6 +59,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -68,6 +69,15 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   position: relative;
+  /* Smooth rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimization for all heavy elements */
+section {
+  position: relative;
+  contain: paint; /* Improved scroll performance */
 }
 
 body::before {
@@ -91,6 +101,12 @@ a, button, [role="button"] {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+}
+
+/* Fix for some GPU-intensive rendering */
+.gpu-accelerated {
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 ul {

@@ -4,7 +4,7 @@ import Hero3D from '../Hero3D/Hero3D'
 import styles from './Hero.module.css'
 
 export default function Hero() {
-  const subtitleText = "Artificial Intelligence Engineer | Frontend Developer | Tech Explorer"
+  const subtitleText = "Cyber Security Analyst | Full Stack Developer | Tech Explorer"
 
   const containerVariants = {
     hidden: { opacity: 1 },
@@ -69,8 +69,8 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 2.5 }}
           >
-            Creating AI-powered solutions. Building modern web experiences.<br/>
-            Solving real-world problems with technology.
+            Building secure digital infrastructures. Creating AI-powered security solutions.<br/>
+            Solving real-world problems with robust technology.
           </motion.p>
 
           <motion.div 
@@ -79,11 +79,11 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.7 }}
           >
-            <span className={styles.pill}>AI Enthusiast</span>
-            <span className={styles.pill}>Machine Learning Engineer</span>
-            <span className={styles.pill}>Deep Learning Expert</span>
-            <span className={styles.pill}>Computer Vision Researcher</span>
-            <span className={styles.pill}>Developer</span>
+            <span className={styles.pill}>Cyber Security Expert</span>
+            <span className={styles.pill}>Cyber Security Analyst</span>
+            <span className={styles.pill}>Network Security</span>
+            <span className={styles.pill}>Cryptography Researcher</span>
+            <span className={styles.pill}>Penetration Tester</span>
           </motion.div>
 
           <motion.div 
@@ -98,7 +98,7 @@ export default function Hero() {
             </div>
             <div className={styles.infoCard}>
               <div className={styles.cardIcon}><FiBriefcase color="#a855f7" /> <span className={styles.cardLabel}>Expertise</span></div>
-              <p className={styles.cardValue}>AI/ML, Problem Solving</p>
+              <p className={styles.cardValue}>Security & Problem Solving</p>
             </div>
             <div className={styles.infoCard}>
               <div className={styles.cardIcon}>📞 <span className={styles.cardLabel}>Contact</span></div>
