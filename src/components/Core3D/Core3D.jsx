@@ -91,7 +91,12 @@ export default function Core3D() {
   return (
     <div className={styles.coreContainer} ref={containerRef}>
       {isInView && (
-        <Canvas camera={{ position: [0, 0, 6], fov: 45 }} dpr={1} gl={{ antialias: false, powerPreference: "high-performance" }}>
+        <Canvas 
+          camera={{ position: [0, 0, 6], fov: 45 }} 
+          dpr={1} 
+          gl={{ antialias: false, powerPreference: "high-performance", alpha: true }}
+          performance={{ min: 0.5 }}
+        >
           <ambientLight intensity={0.2} />
           <directionalLight position={[10, 10, 10]} intensity={1.5} color="#ffffff" />
           <pointLight position={[-10, -10, -10]} intensity={3} color="#a855f7" />
@@ -103,6 +108,7 @@ export default function Core3D() {
           <OrbitControls enableZoom={false} enablePan={false} autoRotate={true} autoRotateSpeed={0.5} />
         </Canvas>
       )}
+
     </div>
   )
 }

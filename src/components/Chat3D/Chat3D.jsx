@@ -61,7 +61,12 @@ export default function Chat3D() {
   return (
     <div style={{ width: '100%', height: '100%', pointerEvents: 'none', background: 'transparent' }} ref={containerRef}>
       {isInView && (
-        <Canvas camera={{ position: [0, 0, 3], fov: 40 }} dpr={1} gl={{ antialias: false, powerPreference: "high-performance" }}>
+        <Canvas 
+          camera={{ position: [0, 0, 3], fov: 40 }} 
+          dpr={1} 
+          gl={{ antialias: false, powerPreference: "high-performance", alpha: true }}
+          performance={{ min: 0.5 }}
+        >
           <ambientLight intensity={1} />
           <pointLight position={[10, 10, 10]} intensity={1.5} color="#38bdf8" />
           <pointLight position={[-10, -10, -10]} intensity={1.5} color="#a855f7" />
@@ -72,6 +77,7 @@ export default function Chat3D() {
           <OrbitControls enableZoom={false} enablePan={false} />
         </Canvas>
       )}
+
     </div>
   )
 }

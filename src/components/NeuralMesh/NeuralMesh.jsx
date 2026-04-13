@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Points, PointMaterial } from '@react-three/drei'
 import * as random from 'maath/random/dist/maath-random.esm'
@@ -6,7 +6,8 @@ import styles from './NeuralMesh.module.css'
 
 function Starfield(props) {
   const ref = useRef()
-  const sphere = random.inSphere(new Float32Array(1500), { radius: 10 }) // Increased radius to cover screen
+  // Use useMemo to prevent regeneration on every render
+  const sphere = useMemo(() => random.inSphere(new Float32Array(1500), { radius: 10 }), [])
 
   useFrame((state, delta) => {
     if (ref.current) {
@@ -34,9 +35,15 @@ function Starfield(props) {
 export default function NeuralMesh() {
   return (
     <div className={styles.meshContainer}>
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 75 }}
+        dpr={1}
+        gl={{ antialias: false, powerPreference: 'high-performance', alpha: true }}
+        performance={{ min: 0.5 }}
+      >
         <Starfield />
       </Canvas>
     </div>
   )
 }
+

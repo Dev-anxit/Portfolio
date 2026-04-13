@@ -16,13 +16,13 @@ function AdvancedLoader() {
 
   return (
     <group>
-      {/* Hyper-speed data particles effect */}
-      <Sparkles count={400} scale={10} size={3} speed={1.5} opacity={0.6} color="#00f0ff" />
-      <Sparkles count={200} scale={7} size={5} speed={0.8} opacity={0.4} color="#a855f7" />
+      {/* Hyper-speed data particles effect - reduced for performance */}
+      <Sparkles count={150} scale={10} size={2} speed={1.5} opacity={0.6} color="#00f0ff" />
+      <Sparkles count={80} scale={7} size={4} speed={0.8} opacity={0.4} color="#a855f7" />
 
       <Float speed={4} rotationIntensity={2} floatIntensity={2}>
-        {/* Intricate abstract core representing complex algorithms */}
-        <TorusKnot ref={knotRef} args={[1.5, 0.4, 200, 32]} scale={1}>
+        {/* Intricate core - reduced detail (100, 16 instead of 200, 32) */}
+        <TorusKnot ref={knotRef} args={[1.5, 0.4, 100, 16]} scale={1}>
           <meshStandardMaterial 
             color="#0f172a" 
             wireframe={true} 
@@ -35,9 +35,8 @@ function AdvancedLoader() {
           />
         </TorusKnot>
 
-        {/* Pulsing inner AI solid core */}
         <mesh>
-          <sphereGeometry args={[1.2, 32, 32]} />
+          <sphereGeometry args={[1.2, 16, 16]} />
           <meshStandardMaterial 
             color="#a855f7" 
             emissive="#a855f7" 
@@ -54,7 +53,12 @@ function AdvancedLoader() {
 export default function Loading3D() {
   return (
     <div className={styles.loadingContainer}>
-      <Canvas camera={{ position: [0, 0, 9], fov: 45 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 9], fov: 45 }}
+        dpr={1}
+        gl={{ antialias: false, powerPreference: 'high-performance' }}
+        performance={{ min: 0.5 }}
+      >
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 10]} intensity={2} color="#ffffff" />
         <pointLight position={[-10, 0, -10]} intensity={4} color="#a855f7" />
@@ -64,3 +68,4 @@ export default function Loading3D() {
     </div>
   )
 }
+

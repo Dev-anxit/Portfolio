@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Points, PointMaterial } from '@react-three/drei'
 import * as random from 'maath/random/dist/maath-random.esm'
@@ -35,9 +35,15 @@ function ParticleField(props) {
 export default function ParticleBackground() {
   return (
     <div className={styles.particleContainer}>
-      <Canvas dpr={[1, 1.5]} gl={{ antialias: false, powerPreference: 'high-performance' }} camera={{ position: [0, 0, 8], fov: 75 }}>
+      <Canvas 
+        dpr={1} 
+        gl={{ antialias: false, powerPreference: 'high-performance', alpha: true }} 
+        camera={{ position: [0, 0, 8], fov: 75 }}
+        performance={{ min: 0.5 }}
+      >
         <ParticleField />
       </Canvas>
     </div>
   )
 }
+
